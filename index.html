@@ -1,378 +1,51 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Calliope-voce · L'assistente vocale AI che risponde a ogni chiamata</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#1d1b1a;--cream:#fdf9ef;--card:#fff;--muted:#5f5a50;--line:rgba(29,27,26,.14);--acc:#3f86d0;--sky:#8fc0ea;--stone:#cfe0ef;--bg2:#f0f7ff;}
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f4efe3;--cream:#14171c;--card:#1d2128;--muted:#aaa699;--line:rgba(244,239,227,.15);--bg2:#191d24}}
-:root[data-theme="dark"]{--ink:#f4efe3;--cream:#14171c;--card:#1d2128;--muted:#aaa699;--line:rgba(244,239,227,.15);--bg2:#191d24}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-html,body{max-width:100%;overflow-x:clip}
-img{max-width:100%}
-body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.02;margin:0}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.btn{display:inline-block;background:linear-gradient(135deg,#cfe3f2,#fff);color:#1d1b1a;border-radius:99px;padding:14px 26px;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;filter:drop-shadow(0 2px 14px rgba(20,60,110,.25))}
-.btn.o{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.8)}
-.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
-/* HERO */
-.hero{position:relative;color:#fff;overflow:hidden;background:
-url('img/hero-bg-4.png') center center/cover no-repeat,
-radial-gradient(ellipse 260px 90px at 18% 38%,rgba(255,255,255,.75),transparent 70%),
-radial-gradient(ellipse 340px 110px at 82% 30%,rgba(255,255,255,.7),transparent 70%),
-radial-gradient(ellipse 300px 100px at 70% 62%,rgba(255,255,255,.55),transparent 70%),
-radial-gradient(ellipse 280px 90px at 28% 68%,rgba(255,255,255,.5),transparent 70%),
-linear-gradient(#3f86d0,#8fc0ea 70%,#cfe3f2)}
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calliope Voice · L’assistente vocale per chi vende impianti</title><link rel="icon" href="./public/assets/calliope-muse.webp"><style>@font-face{font-family:Inria;src:url('./public/assets/inria-regular.ttf') format('truetype');font-display:swap;font-style:normal;font-weight:400}
+@font-face{font-family:Inria;src:url('./public/assets/inria-bold.ttf') format('truetype');font-display:swap;font-style:normal;font-weight:700}
+@font-face{font-family:Marcellus;src:url('./public/assets/marcellus.ttf') format('truetype');font-display:swap;font-style:normal;font-weight:400}
+:root{--ink:#17160f;--paper:#fefbee;--cool:#f2f2f7;--dust:#8ea3bf;--slate:#445e7b;--navy:#153349;--gold:#ad8b4e;--stroke:#cbc9be;--soft:#555650;--serif:Marcellus,Georgia,serif;--sans:Inria,Arial,sans-serif;color:var(--ink);font-family:var(--sans);background:var(--cool);font-synthesis:none;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0}h1,h2,h3,p,blockquote,dl,dd,ul,ol{margin:0}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button,summary,select{cursor:pointer}button{color:inherit}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #566f99;outline-offset:4px}img,svg{display:block}button[disabled]{cursor:default;opacity:.65}mark{background:var(--dust);color:inherit}h1,h2,h3{font-family:var(--serif);font-weight:400}h2{font-size:clamp(2.9rem,4.15vw,4.1rem);line-height:1.07;letter-spacing:-.047em;text-wrap:balance}h2 em,h3 em{color:var(--slate);font-style:normal}p{font-size:1.1rem;line-height:1.52}strong,b{font-weight:700}.wrap{width:min(1200px,calc(100% - clamp(64px,12vw,200px)));margin-inline:auto}.section{padding-block:clamp(76px,7.4vw,118px)}.section-title{margin-bottom:47px}.section-title.center{text-align:center;max-width:900px;margin-inline:auto}.label{font-family:var(--sans);font-weight:700;letter-spacing:.145em;text-transform:uppercase;font-size:.84rem}.sr,.skip:not(:focus){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.skip:focus{position:fixed;left:1rem;top:1rem;z-index:40;padding:12px 18px;background:var(--paper)}.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:.94rem 1.5rem;min-height:48px;border:1px solid var(--ink);border-radius:5px;background:var(--ink);color:var(--paper);font:700 .9rem/1.15 var(--sans);letter-spacing:.045em;transition:background .18s,color .18s,transform .18s}.btn:hover{background:#354450;color:white}.btn:active{transform:translateY(1px)}.btn.blue{background:var(--dust);border-color:var(--dust);color:var(--ink)}.btn.line{background:transparent;border-color:var(--stroke);color:var(--ink)}.text-link{font-weight:700;display:inline-block;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}.text-link:hover{color:var(--slate)}.wordmark{display:inline-flex;align-items:center;gap:6px;font:400 1.75rem/1 var(--serif);letter-spacing:-.055em;white-space:nowrap}.wordmark img{width:39px;height:39px;object-fit:contain}
+.hero{background:var(--cool)}.desktop-hero{position:relative;margin-inline:auto;max-width:2000px}.hero-original{width:100%;height:auto}.hit,.hero-navigation a{position:absolute;display:block;border:0;background:transparent;padding:0;border-radius:4px;transition:box-shadow .16s}.hit:hover,.hero-navigation a:hover{box-shadow:inset 0 -2px 0 rgb(78 89 111 / .35)}.hero-logo{left:1.74%;top:3.1%;width:15.8%;height:6.4%}.hero-navigation a{top:4%;height:4.7%;width:6.3%}.hero-navigation a:nth-child(1){left:43.4%}.hero-navigation a:nth-child(2){left:50.9%;width:7.5%}.hero-navigation a:nth-child(3){left:61.1%;width:7.2%}.hero-navigation a:nth-child(4){left:70.8%;width:7.3%}.hero-navigation a:nth-child(5){left:83.6%;width:6.8%}.hero-listen{left:50.95%;top:82.7%;width:13.75%;height:5.7%}.hero-book{left:65.75%;top:82.7%;width:14.5%;height:5.7%}.hero-player{left:.35%;top:68.5%;width:36.1%;height:25%}.mobile-hero{display:none}
+.problem{background:var(--paper);border-block:1px solid var(--stroke)}.problem-inner{display:grid;grid-template-columns:1.4fr .85fr;gap:clamp(40px,8vw,145px);align-items:center;padding-block:clamp(52px,5.3vw,88px)}.problem h2{font-size:clamp(2.15rem,3.2vw,3.35rem);line-height:1.13}.problem h2 em{background:linear-gradient(transparent 72%,#d6dee6 72%);color:var(--ink)}.problem p{font-size:1.08rem;color:#4b4b45}.problem p strong{color:var(--ink)}
+.services{background:#f7f7f9}.services h2{margin-bottom:42px}.agent-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(15px,2.1vw,32px)}.agent{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--stroke)}.agent-art{position:relative;aspect-ratio:1.21;overflow:hidden;background:#e9e2d5}.agent-art img{width:100%;height:100%;object-fit:cover;object-position:50% 48%;transition:transform .65s ease}.agent:hover .agent-art img{transform:scale(1.025)}.agent-info{padding:clamp(20px,2.1vw,31px);display:flex;flex:1;flex-direction:column;align-items:flex-start;border-top:1px solid var(--stroke)}.agent-info h3{font-size:clamp(1.58rem,2.1vw,2.1rem);line-height:1.12;letter-spacing:-.04em;margin-bottom:17px}.agent-info p{font-size:1.03rem;line-height:1.48;color:#474741}.agent-info p strong{color:var(--ink)}.agent-info .text-link{margin-top:auto;padding-top:24px}
+.trial-ribbon{background:#c8d3df;border-block:1px solid #9cabba}.ribbon-inner{padding-block:39px;display:grid;align-items:center;grid-template-columns:68px 1fr auto;gap:32px}.ribbon-inner>img{width:68px;height:68px}.ribbon-inner h2{font-size:clamp(1.7rem,2.45vw,2.65rem);line-height:1.15}.ribbon-inner p{font-size:1.04rem;margin-top:8px;max-width:710px}
+.flow{background:var(--paper)}.flow h2{margin-bottom:48px}.flow-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,6vw,90px);align-items:stretch}.steps{display:flex;flex-direction:column;border-bottom:1px solid var(--stroke)}.steps button{background:none;border:0;border-top:1px solid var(--stroke);min-height:77px;text-align:left;display:flex;gap:15px;align-items:flex-start;padding:16px 0 15px;width:100%;color:#595b56}.steps i{margin:7px 3px 0;width:8px;height:8px;flex:none;border:1px solid #a09273;transform:rotate(45deg)}.steps strong{display:block;font-size:1.16rem;line-height:1.22}.steps small{display:block;font-size:1rem;line-height:1.4;margin-top:4px}.steps button.selected{color:var(--ink)}.steps button.selected i{background:var(--gold);border-color:var(--gold)}.steps button:hover{background:rgb(142 163 191 / .09)}.flow-board{background-color:#e1e6ed;background-image:linear-gradient(90deg,#647b9612 1px,transparent 1px),linear-gradient(#647b9612 1px,transparent 1px);background-size:26px 26px;border:1px solid #b0bdc9;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:24px;min-width:0;gap:28px}.blueprint-top{width:100%;display:flex;align-items:center;justify-content:space-between;color:#40576c}.blueprint-top img{width:72px;height:auto;opacity:.46}.specimen{width:min(345px,92%);background:var(--paper);padding:24px 25px;border:1px solid #9eacb9;box-shadow:7px 7px 0 #8ea3bf48;animation:arrive .25s ease}.specimen-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--stroke);padding-bottom:13px;color:var(--slate)}.specimen-header .label{font-size:.75rem}.specimen h3{font-size:1.65rem;line-height:1.15;letter-spacing:-.035em;margin:18px 0}.specimen dl div{display:grid;grid-template-columns:.95fr 1.3fr;gap:9px;padding:4px 0;align-items:baseline}.specimen dt{color:#66665d;font-size:.89rem}.specimen dd{font-size:1rem}.specimen-result{display:flex;align-items:center;gap:7px;font-size:.88rem;color:var(--slate);border-top:1px solid var(--stroke);margin-top:18px;padding-top:12px}.specimen-result span{font-size:1.1rem}.specimen blockquote{line-height:1.4}.flow-track{display:flex;gap:6px;justify-content:center}.flow-track i{height:3px;width:20px;background:#b2bfce}.flow-track .current{background:#495f77}.flow-foot{font-size:1rem;color:var(--soft);margin-top:23px}.sector{background:#213e53;color:var(--paper);overflow:hidden}.sector-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px}.sector-inner>div:first-child{padding-block:55px}.sector .label{color:#e0cda8}.sector h2{font-size:clamp(3rem,6.1vw,6.4rem);margin:20px 0 13px}.sector h2 span{color:var(--dust)}.sector p{color:#e0e6e8;max-width:450px}.solar-drawing{position:relative;align-self:stretch;display:grid;align-items:center;max-height:410px;background-image:linear-gradient(90deg,#a3b8ce12 1px,transparent 1px),linear-gradient(#a3b8ce12 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}.solar-drawing svg{width:100%;max-height:370px;min-height:230px}
+.why{background:var(--cool)}.why h2{font-size:clamp(2.6rem,3.8vw,3.8rem)}.reason-grid,.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}.reason-grid article{padding:8px clamp(15px,2vw,30px) 0;border-left:1px solid #c6c9cd}.reason-grid article:first-child{padding-left:0;border:0}.reason-grid svg,.trust-grid svg{color:#657e93;margin-bottom:25px}.reason-grid h3,.trust-grid h3{font-size:clamp(1.3rem,1.7vw,1.7rem);letter-spacing:-.035em;line-height:1.15;margin-bottom:12px}.reason-grid p,.trust-grid p{font-size:1rem;color:var(--soft)}
+.features{background:#fafaf9;border-block:1px solid var(--stroke)}.features-inner{display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;gap:clamp(32px,6vw,100px)}.feature-cover{background:#e3e7ed;position:relative;isolation:isolate;overflow:hidden;min-height:360px}.feature-cover img{position:absolute;z-index:-1;bottom:-2%;left:-8%;height:92%;width:auto;max-width:none;transform:scaleX(-1) translateX(-17%);opacity:.92}.feature-cover:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#e3e7ed 9%,#e3e7edf0 25%,#e3e7ed00 70%)}.feature-cover h2{padding:clamp(25px,3vw,46px);font-size:clamp(2.8rem,4vw,4.3rem);position:relative}.feature-list{list-style:none;padding:0}.feature-list li{display:grid;grid-template-columns:26px 1fr;gap:18px;align-items:center;font-size:1.12rem;line-height:1.32;border-bottom:1px solid var(--stroke);padding:17px 0}.feature-list li:first-child{border-top:1px solid var(--stroke)}.feature-list svg{color:#597087}.transparency{background:var(--paper)}.trust-grid{gap:clamp(22px,3vw,47px)}.trust-grid article{border-top:1px solid #9da9b4;padding-top:20px}.trust-grid svg{width:24px;height:24px;stroke-width:1.4;margin-bottom:19px}.integrations{background:#e6ebf1;border-block:1px solid #c4cdd5}.integrate-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(40px,7vw,90px)}.integration-text p{margin-top:16px;max-width:430px}.integration-drawing{position:relative;height:250px;width:100%;display:flex;align-items:center;justify-content:space-between;isolation:isolate;background-image:radial-gradient(#8799a989 1px,transparent 1px);background-size:18px 18px;padding-inline:11%;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}.integration-drawing>img,.integration-icons span{background:var(--paper);border:1px solid #9eafc0;box-shadow:3px 3px 0 #adbdcd}.integration-drawing>img{width:90px;height:90px;padding:7px}.integration-icons{height:100%;display:flex;flex-direction:column;justify-content:space-evenly}.integration-icons span{width:52px;height:49px;display:grid;place-items:center;color:var(--slate)}.integration-icons svg{stroke-width:1.4}.conduits{position:absolute;z-index:-1;left:25%;right:18%;top:24%;bottom:24%}.conduits i{position:absolute;left:0;right:0;top:50%;border-top:1px solid #7188a2}.conduits i:first-child,.conduits i:last-child{height:50%;left:45%;top:0;border:1px solid #7188a2;border-right:0;border-bottom:0}.conduits i:last-child{top:50%;border-top:0;border-bottom:1px solid #7188a2}
+.pricing{background:#f7f7f9}.price-inner{display:grid;grid-template-columns:.85fr 1.2fr;gap:6%;align-items:center}.price-card{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid #b7bdc3}.price-main,.price-extra{padding:clamp(21px,2.4vw,40px)}.price-main{background:var(--paper)}.price-main p{font-size:1.01rem;line-height:1.45;margin:0 0 21px}.price-amount{font:400 clamp(3.3rem,4.8vw,4.9rem)/1.15 var(--serif);color:var(--navy);letter-spacing:-.07em;margin:14px 0}.price-amount span{font-size:.55em}.price-extra{display:flex;flex-direction:column;justify-content:center;background:#e6eaf0;border-left:1px solid #bcc5cf}.price-extra h3{font-size:1.5rem;margin-bottom:15px}.price-extra>span{padding:8px 0;border-bottom:1px solid #b9c5cf;font-size:1.01rem}.price-extra small{font-size:.92rem;line-height:1.4;margin-top:17px;color:var(--soft)}
+.faq{background:#fafaf8;border-top:1px solid var(--stroke)}.faq-inner{display:grid;grid-template-columns:.65fr 1.35fr;gap:8%}.faq-list{border-top:1px solid #9da4a6}.faq details{border-bottom:1px solid var(--stroke)}.faq summary{padding:19px 3px 19px 0;display:flex;gap:20px;align-items:center;justify-content:space-between;list-style:none;font:700 1.09rem/1.35 var(--sans)}.faq summary::-webkit-details-marker{display:none}.faq summary span{width:14px;height:14px;position:relative;flex:none}.faq summary span:before,.faq summary span:after{content:"";position:absolute;left:0;top:6px;width:14px;height:1px;background:var(--slate)}.faq summary span:after{transform:rotate(90deg);transition:transform .2s}.faq details[open] summary span:after{transform:rotate(0)}.faq details[open] summary{color:var(--slate)}.faq details p{font-size:1.04rem;color:var(--soft);padding:0 28px 20px 0;max-width:660px}
+.contact{background:#d0dae4;border-block:1px solid #adb9c6}.contact-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:start}.contact-title>img{width:81px;opacity:.64;margin-bottom:26px}.contact h2{font-size:clamp(3.1rem,5vw,5rem)}.contact h2 em{color:#334f6d}.contact-title p{margin-top:25px}.lead-form,.success{padding:clamp(22px,3vw,42px);background:var(--paper);border:1px solid #adb6be}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.fields label{display:flex;flex-direction:column;align-items:stretch;font-size:1rem;line-height:1.25;gap:6px}.fields label small{font-size:.87rem;color:var(--soft)}.fields label.whole{display:block;grid-column:1/-1}.fields label.whole input{display:block;margin-top:6px}.fields input,.fields select{width:100%;min-height:45px;border-radius:2px;border:1px solid #bfbfb3;background:#fffef9;padding:10px 12px;color:var(--ink);font-size:1rem}.fields input::placeholder{color:#71716b}.fields select{appearance:none;padding-right:30px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%233b4250' stroke-width='1.2'/%3E%3C/svg%3E");background-position:right 12px center;background-repeat:no-repeat}.form-submit{width:100%;margin-top:23px}.form-note{display:block;text-align:center;font-size:.88rem;margin-top:10px;color:var(--soft)}.chosen{display:flex;gap:10px;align-items:center;margin-bottom:16px;font-size:.95rem;color:var(--slate);font-weight:700}.chosen button,.dialog-top button{border:0;background:transparent;padding:4px}.error{margin-top:14px;color:#942d23;font-size:1rem}.success svg{color:#385c50;margin-bottom:12px}.success h3{font-size:2rem}.success p{margin:15px 0 22px}
+footer{background:var(--paper);padding-block:42px 25px}.footer-main,.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-main nav{display:flex;flex-wrap:wrap;gap:21px;font-size:1rem}.footer-main nav a:hover,.footer-bottom a:hover{text-decoration:underline}.footer-bottom{border-top:1px solid var(--stroke);padding-top:18px;margin-top:28px;color:var(--soft);font-size:.9rem}
+.demo-dialog{width:min(560px,calc(100% - 28px));max-height:88dvh;overflow:auto;padding:0;background:var(--paper);border:1px solid #7e8a95;color:var(--ink);box-shadow:0 18px 100px #1d2f4630}.demo-dialog::backdrop{background:#18212a88}.demo-inside{padding:clamp(22px,4vw,38px)}.dialog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.demo-inside h2{font-size:2.9rem}.demo-inside>p{margin:.7rem 0 1.1rem;font-size:1.02rem}.demo-controls{display:flex;align-items:center;gap:13px}.demo-controls>span{font-size:.88rem;color:var(--soft);line-height:1.3}.dialogue{padding:0;margin:18px 0 0;list-style:none}.dialogue li{border-top:1px solid var(--stroke)}.dialogue button{width:100%;text-align:left;padding:10px 7px;background:none;border:0;display:grid;grid-template-columns:66px 1fr;gap:10px;line-height:1.35}.dialogue button:disabled{opacity:1}.dialogue b{color:var(--slate)}.dialogue .speaking{background:#dce5ed}.account{width:min(680px,90%);margin:7vh auto;background:var(--paper);padding:clamp(24px,5vw,70px);border:1px solid var(--stroke)}.account h1{font-size:2.7rem;margin:45px 0 18px}.account ul{padding:0;list-style:none}.account li{border-top:1px solid var(--stroke);display:flex;justify-content:space-between;gap:12px;padding:14px 0}.account .btn,.account .text-link{margin:18px 15px 0 0}
+@keyframes arrive{from{opacity:.55;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1700px){.hero{border-bottom:1px solid var(--stroke)}}
+@media(max-width:1000px){.wrap{width:calc(100% - 72px)}.section{padding-block:72px}.agent-grid{gap:14px}.agent-info{padding:17px}.agent-info h3{font-size:1.55rem}.price-inner{grid-template-columns:1fr}.price-card{margin-top:28px}.reason-grid,.trust-grid{grid-template-columns:repeat(2,1fr);gap:30px}.reason-grid article{padding:18px 0 0;border-left:0;border-top:1px solid var(--stroke)}.reason-grid article:first-child{border-top:1px solid var(--stroke);padding-top:18px}.ribbon-inner{gap:20px;grid-template-columns:52px 1fr auto}.ribbon-inner>img{width:52px;height:52px}.flow-layout{gap:26px}.flow-board{padding:18px}.specimen{padding:18px;width:97%}.specimen h3{font-size:1.45rem}.contact-inner{grid-template-columns:.8fr 1.2fr;gap:32px}}
+@media(max-width:760px){html{scroll-padding-top:12px}.desktop-hero{display:none}.mobile-hero{display:block;position:relative;padding-bottom:24px}.mobile-nav{padding:15px 18px 0;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}.mobile-nav .wordmark{background:var(--paper);font-size:1.48rem;padding:1px 7px 1px 3px;height:38px}.mobile-nav .wordmark img{width:30px;height:30px}.mobile-nav button{border:1px solid #d5d1c6;background:var(--paper);height:38px;width:42px;display:grid;place-items:center}.mobile-nav svg{width:21px}.mobile-hero nav{position:absolute;top:59px;right:18px;padding:8px 17px;background:var(--paper);border:1px solid var(--stroke);z-index:4;min-width:175px;box-shadow:3px 3px 0 #9bacc34d}.mobile-hero nav a{display:block;padding:10px 0;text-transform:uppercase;letter-spacing:.12em;font-size:.9rem;border-bottom:1px solid var(--stroke)}.mobile-hero nav a:last-child{border:0}.mobile-scene{background-image:url('./public/assets/calliope-hero.webp');background-repeat:no-repeat;background-position:left bottom;background-size:auto 100%;height:clamp(350px,87vw,520px);position:relative;margin-top:-53px}.mobile-title{position:absolute;bottom:0;right:0;background:var(--paper);width:73%;padding:13px 17px 15px 14px}.mobile-title h1{font:400 clamp(1.42rem,4.85vw,2.46rem)/1.13 var(--serif);text-align:right;text-transform:uppercase;letter-spacing:-.045em}.mobile-intro{margin:12px 16px 0 auto;background:var(--paper);padding:16px 18px;width:calc(100% - 50px)}.mobile-intro p{font-size:1rem;line-height:1.35}.mobile-actions{display:flex;gap:7px;margin-top:13px}.mobile-actions .btn{padding:9px 12px;min-height:42px;font-size:.83rem;letter-spacing:.03em;flex:1;white-space:nowrap}.mobile-intro small{font-size:.75rem;display:block;margin-top:6px}.mobile-player{display:flex;align-items:center;gap:12px;width:calc(100% - 64px);max-width:430px;margin:13px auto 0 0;padding:10px 14px;background:#676768;color:#ffe9c8;border:7px solid var(--paper);outline:1px solid #91918e;outline-offset:-1px}.mobile-player span{font:400 1.1rem/1 var(--serif);white-space:nowrap}.mobile-player i{height:20px;flex:1;background:url('./public/assets/meandro.webp') repeat-x left center/auto 20px}
+.wrap{width:calc(100% - 40px)}.section{padding-block:57px}h2{font-size:clamp(2.35rem,7vw,3.35rem)}.problem-inner,.features-inner,.integrate-inner,.faq-inner,.contact-inner{grid-template-columns:1fr;gap:27px}.problem-inner{padding-block:38px}.problem h2{font-size:clamp(1.95rem,6.2vw,2.6rem)}.problem p{font-size:1rem}.services h2{margin-bottom:24px}.agent-grid{grid-template-columns:1fr;gap:24px}.agent{display:grid;grid-template-columns:.73fr 1fr}.agent-art{height:100%;aspect-ratio:auto;min-height:195px}.agent-art img{position:absolute;inset:0}.agent-info{border-top:0;border-left:1px solid var(--stroke);padding:18px}.agent-info h3{font-size:1.55rem;margin-bottom:9px}.agent-info p{font-size:1rem;line-height:1.38}.agent-info .text-link{padding-top:18px;font-size:.94rem}.ribbon-inner{grid-template-columns:46px 1fr;gap:14px;padding-block:28px}.ribbon-inner>img{width:46px;height:46px;align-self:start}.ribbon-inner .btn{grid-column:2;justify-self:start}.ribbon-inner p{font-size:1rem}.flow h2{margin-bottom:30px}.flow-layout{grid-template-columns:1fr;gap:22px}.steps button{min-height:0;padding:12px 0;gap:10px}.steps strong{font-size:1.05rem}.steps small{font-size:.97rem}.flow-board{min-height:312px;padding:16px;gap:17px}.specimen{width:min(335px,90%)}.flow-foot{margin-top:16px}.sector-inner{grid-template-columns:1fr;gap:0}.sector-inner>div:first-child{padding:38px 0 0}.sector h2{font-size:3.25rem;margin-top:11px}.solar-drawing{height:205px;min-height:0}.solar-drawing svg{height:100%;min-height:0}.section-title{margin-bottom:28px}.why h2{font-size:2.35rem}.reason-grid,.trust-grid{gap:23px 17px}.reason-grid svg,.trust-grid svg{margin-bottom:13px}.reason-grid h3,.trust-grid h3{font-size:1.35rem}.reason-grid p,.trust-grid p{font-size:.98rem;line-height:1.4}.feature-cover{min-height:295px}.feature-cover h2{font-size:2.8rem}.feature-cover img{height:121%;left:12%;bottom:-19%}.features-inner{gap:22px}.feature-list li{padding:13px 0;font-size:1.04rem}.integrate-inner{gap:20px}.integration-text{grid-row:1}.integration-drawing{height:200px;max-width:490px}.integration-drawing>img{width:75px;height:75px}.integration-icons span{width:47px;height:44px}.price-inner{display:block}.price-card{margin-top:22px}.price-main,.price-extra{padding:21px 15px}.price-main .btn{padding:10px 14px;font-size:.85rem}.price-extra h3{font-size:1.3rem}.faq-inner h2 br{display:none}.faq summary{font-size:1.03rem;padding:16px 0}.contact h2 br{display:none}.contact h2{font-size:2.8rem}.contact-title>img{width:60px;margin-bottom:17px}.contact-title p{margin-top:12px}.fields{gap:14px 11px}.lead-form{padding:20px 16px}.footer-main,.footer-bottom{align-items:flex-start}.footer-main{flex-direction:column}.footer-main nav{gap:12px 17px}.footer-bottom{font-size:.84rem}.wordmark{font-size:1.6rem}}
+@media(max-width:430px){.agent{display:flex}.agent-art{width:100%;min-height:0;aspect-ratio:1.52}.agent-info{border-left:0;border-top:1px solid var(--stroke);padding:20px}.agent-info h3{font-size:1.75rem}.mobile-actions .btn{padding-inline:7px}.ribbon-inner{grid-template-columns:1fr}.ribbon-inner>img{display:none}.ribbon-inner .btn{grid-column:auto}.fields{grid-template-columns:1fr}.price-card{grid-template-columns:1fr}.price-extra{border:0;border-top:1px solid #bcc5cf}.price-extra>span{display:block}.feature-cover img{left:-3%}.reason-grid,.trust-grid{gap:22px 14px}.section-title.center{text-align:left}.dialogue button{grid-template-columns:55px 1fr;gap:6px}.contact h2{font-size:2.57rem}.mobile-intro{width:calc(100% - 32px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
-nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:24px clamp(80px,11vw,160px);border-bottom:1px solid rgba(255,255,255,.35);margin:0 0 0}
-.logo{font-family:"Cormorant Garamond",serif;font-size:30px;text-decoration:none;display:flex;gap:8px;align-items:center}
-.logo img{height:40px;width:auto}
-nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0}
-nav ul a{text-decoration:none;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
-.hero .in{position:relative;z-index:2;padding:34px clamp(80px,11vw,160px) 19.5vw}
-.h1row{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,28px)}
-.h1row h1{font-size:clamp(44px,6.2vw,120px);text-transform:uppercase;letter-spacing:-.02em;white-space:nowrap;background:linear-gradient(#fff,#cfe0ef);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(20,60,110,.25))}
-.par{font-family:"Cormorant Garamond",serif;font-size:clamp(70px,10vw,160px);font-weight:400;line-height:.8;position:relative;display:flex;align-items:center}
-.par span{font:500 clamp(10px,1.1vw,14px)/1.3 "IBM Plex Sans",sans-serif;text-align:center;width:clamp(100px,12vw,160px);margin:0 -6px}
-.mai-piu{font:500 clamp(14px,1.5vw,18px)/1.3 "IBM Plex Sans",sans-serif;color:#fff;text-align:center;position:relative;top:-10px}
-.mai-piu-mobile{display:none}
-.trio{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(60px,8vw,120px);align-items:start;margin-top:8px}
-.left{padding-top:24px;text-shadow:0 1px 12px rgba(20,60,110,.3);grid-column:1}
-.left h2{font-size:clamp(30px,3.2vw,46px);max-width:300px}
-.right{padding-top:24px;text-align:right;font-size:15.5px;line-height:1.5;justify-self:end;max-width:340px;text-shadow:0 1px 10px rgba(20,60,110,.35);grid-column:3;order:1}
-.right b{display:block;margin-top:10px;font-weight:600;font-size:14px}
-.pw{position:relative;grid-column:3;justify-self:end;order:2;margin-top:-100px}
-/* telefono */
-.phone{position:relative;margin:0 auto;width:260px;min-height:380px;border-radius:34px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.55);padding:22px;box-shadow:0 30px 60px rgba(20,50,100,.3);text-align:center}
-.av{width:68px;height:68px;border-radius:50%;margin:6px auto 10px;background:radial-gradient(circle at 35% 30%,#fff,#e9dcc3 60%,#bfa56d);display:grid;place-items:center;font:600 28px "Cormorant Garamond",serif;color:#6b5522}
-.phone small{display:block;opacity:.9;font-size:12px}
-.msg{background:#fff;color:#1d1b1a;border-radius:16px;padding:10px 12px;font-size:13px;text-align:left;margin-top:10px;line-height:1.4}
-.msg.me{background:#1d1b1a;color:#fff;margin-left:30px}
-.wave{display:flex;gap:4px;justify-content:center;align-items:center;height:40px;margin-top:14px}
-.wave i{width:4px;background:#fff;border-radius:3px;height:10px;animation:w 1.1s ease-in-out infinite}
-.wave i:nth-child(2n){animation-delay:.2s}.wave i:nth-child(3n){animation-delay:.45s}.wave i:nth-child(5n){animation-delay:.7s}
-@keyframes w{50%{height:34px}}
-.spalla-container{position:absolute;left:10%;top:55%;width:180px;height:180px;background:url('img/spalla.png') no-repeat center center;background-size:contain;z-index:2;pointer-events:none}
-.cta-c{position:absolute;z-index:4;left:25%;top:42%;width:135px;height:135px;border-radius:50%;background:#E0ABE6;color:#1d1b1a;display:grid;place-items:center;text-align:center;text-decoration:none;font-weight:500;font-size:13px;line-height:1.2;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:transform .25s}
-.cta-c:hover{transform:scale(1.07)}
-.arc{position:absolute;left:0;right:0;bottom:-2px;z-index:3;width:100%;height:auto;display:block}
-.arc text{font:400 44px "Cormorant Garamond",serif;fill:#fff;text-transform:uppercase;stroke:rgba(20,60,110,.35);stroke-width:2;paint-order:stroke}
-/* INTRO */
-.intro{text-align:center;padding:30px 24px 90px}
-.eyebrow{color:var(--acc);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0 0 18px}
-.intro p.big{font:500 clamp(26px,3.6vw,44px)/1.18 "Cormorant Garamond",serif;max-width:860px;margin:0 auto}
-.intro .fade{color:var(--muted);-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
-.coin{display:inline-block;padding:0 14px;border-radius:99px;background:linear-gradient(#e9c46a,#b8862b);color:#fff;font-size:.6em;vertical-align:middle;letter-spacing:.1em}
-.btnrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-/* SEZIONI */
-section{padding:90px 0}
-section.alt{background:var(--bg2)}
-.hd{max-width:760px;margin-bottom:46px}
-.hd h2{font-size:clamp(36px,5vw,66px)}
-.hd p{color:var(--muted);margin:16px 0 0}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stats div{padding:34px 20px;border-left:1px solid var(--line);text-align:center}
-.stats div:first-child{border-left:0}
-.stats b{display:block;font:500 clamp(40px,5vw,64px)/1 "Cormorant Garamond",serif}
-.stats span{color:var(--muted);font-size:14px}
-.logos{display:flex;flex-wrap:wrap;gap:12px 34px;justify-content:center;margin-top:30px;font:500 22px "Cormorant Garamond",serif;color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.loss{font:500 clamp(30px,4.2vw,54px)/1.08 "Cormorant Garamond",serif}
-.loss em{font-style:normal;color:var(--acc)}
-.list{list-style:none;padding:0;margin:0}
-.list li{padding:16px 0;border-top:1px solid var(--line)}
-.list li:last-child{border-bottom:1px solid var(--line)}
-.list b{font-weight:600}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.step{background:var(--card);border-radius:22px;padding:26px;border:1px solid var(--line)}
-.step h3{font-size:30px;margin-bottom:10px}
-.step p{margin:0;color:var(--muted);font-size:15.5px}
-.step .n{font:500 14px "IBM Plex Sans";color:var(--acc);display:block;margin-bottom:12px}
-.empathy{background:#1d1b1a;color:#fff;border-radius:28px;padding:clamp(30px,5vw,60px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
-.empathy h2{font-size:clamp(32px,4.2vw,54px)}
-.empathy p{color:#d6d1c4;margin:0 0 12px}
-.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.fit>div{border-radius:24px;padding:34px;border:1px solid var(--line);background:var(--card)}
-.fit h3{font-size:34px;margin-bottom:14px}
-.fit ul{margin:0;padding-left:20px}.fit li{margin:8px 0}
-.fit .no{background:transparent;border-style:dashed}
-.price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:32px;display:flex;flex-direction:column}
-.plan h3{font-size:34px}
-.plan .p{font:500 54px/1.1 "Cormorant Garamond",serif;margin:12px 0 4px}
-.plan .p small{font:400 14px "IBM Plex Sans";color:var(--muted)}
-.plan ul{padding:0;margin:18px 0 26px;list-style:none;flex:1}
-.plan li{padding:7px 0;font-size:15.5px;border-top:1px solid var(--line)}
-.plan.best{background:#1d1b1a;color:#fff;border-color:#1d1b1a;position:relative}
-.plan.best li{border-color:rgba(255,255,255,.18)}
-.plan.best .btn{background:#fff;color:#1d1b1a}
-.tag{position:absolute;top:-13px;left:28px;background:var(--acc);color:#fff;font-size:12px;border-radius:99px;padding:4px 14px;font-weight:600}
-.note{color:var(--muted);font-size:14px;margin-top:22px;text-align:center}
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-blockquote{margin:0;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
-blockquote p{font:500 25px/1.2 "Cormorant Garamond",serif;margin:0 0 18px}
-blockquote footer{font-size:14px;color:var(--muted)}
-.stars{color:#d49a1f;letter-spacing:3px;margin-bottom:10px}
-.case{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
-.case b{font:500 64px/1 "Cormorant Garamond",serif;color:var(--acc)}
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pp{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
-.pp .ph{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--stone),#c9ad73);margin-bottom:16px;display:grid;place-items:center;font:600 30px "Cormorant Garamond",serif;color:#6b5522}
-.pp h3{font-size:28px}.pp p{margin:6px 0 0;color:var(--muted);font-size:15px}
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.badges span{border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:14px;background:var(--card)}
-details{border-top:1px solid var(--line);padding:20px 0}
-details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font:500 28px/1.15 "Cormorant Garamond",serif;list-style:none;display:flex;justify-content:space-between;gap:20px}
-summary::after{content:"+";transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{color:var(--muted);margin:12px 0 0;max-width:680px}
-.urg{background:var(--acc);color:#fff;text-align:center;padding:12px 24px;font-size:15px;font-weight:500}
-.final{text-align:center;padding:110px 24px;background:linear-gradient(#cfe3f2,#8fc0ea 60%,#4b92d8);color:#12263d;position:relative;overflow:hidden}
-.final h2{font-size:clamp(40px,7vw,100px);max-width:900px;margin:0 auto 20px}
-.final p{max-width:560px;margin:0 auto 30px;font-size:18px}
-footer.f{padding:44px 0;color:var(--muted);font-size:14px}
-footer.f .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
-footer.f a{margin-right:18px}
-.hero-btn{display:none}
-.mobile-prova{display:none}
-.mobile-extra-cta{display:none}
-@media(max-width:900px){
-section{padding:64px 0}
-.two{gap:32px}
-nav{padding:16px 20px}
-nav ul,.logo-txt,.hero-btn,.left,.cta-c,.spalla-container,.right b,.par{display:none}
-.mai-piu-mobile{display:inline}
-.h1row{justify-content:flex-start}
-nav .btn:not(.mobile-prova){display:none}
-.mobile-prova{display:inline-block}
-.mobile-extra-cta{display:block;margin-top:16px;width:55%;}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(rgba(14,40,80,.32),rgba(14,40,80,.10) 60%,transparent)}
-/* sfondo mobile su pseudo-elemento: --zoom = ingrandimento (1 = nessuno), --lift = quanto sale l'immagine, --shift = spostamento orizzontale (px) */
-.hero{--zoom:1.65;--lift:-340px;--shift:-100px;isolation:isolate;background-image:linear-gradient(#3f86d0,#8fc0ea 70%,#cfe3f2)}
-.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('img/hero-bg-mobile.png') 25% center/cover no-repeat;transform:translateX(var(--shift)) translateY(var(--lift)) scale(var(--zoom));transform-origin:25% 35%}
-/* spazio in basso = altezza dell'arco (~21vw) + 32px di respiro */
-.hero .in{padding:28px 20px calc(22vw + 15px)}
-/* minmax(0,1fr): impedisce alla colonna di allargarsi oltre lo schermo */
-.trio{grid-template-columns:minmax(0,1fr);gap:18px;margin-top:20px}
-.right{grid-column:1;order:1;justify-self:flex-start;text-align:left;max-width:460px;padding:0;font-size:16px}
-.pw{grid-column:1;order:2;justify-self:center;width:100%;max-width:420px;margin-top:200px}
-/* card telefono: grid fluida, niente larghezze fisse */
-.phone{width:100%;min-height:0;padding:18px;border-radius:28px;text-align:left;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:center}
-.phone .av{grid-row:1/3;margin:0;width:56px;height:56px;font-size:24px}
-.phone b{align-self:end;font-size:17px;line-height:1.2}
-.phone small{align-self:start;margin-top:2px}
-.phone .msg,.phone .wave{grid-column:1/-1}
-.phone .msg.me{margin:16px 0 0 28px}
-.phone .msg:not(.me){margin:10px 28px 0 0}
-.stats,.steps,.price,.quotes,.team{grid-template-columns:1fr 1fr}
-.two,.empathy,.fit{grid-template-columns:1fr}
-.stats div:nth-child(3){border-left:0}
-}
-@media(max-width:600px){
-.wrap{padding:0 20px}
-section{padding:56px 0}
-.intro{padding:24px 20px 64px}
-nav .btn{padding:10px 16px;font-size:13px}
-.logo img{height:34px}
-.h1row{flex-direction:column;align-items:flex-start;gap:0}
-.h1row h1{font-size:clamp(40px,14vw,80px)}
-.stats,.steps,.price,.quotes,.team{grid-template-columns:1fr}
-.stats div{border-left:0;border-top:1px solid var(--line);padding:26px 16px}
-.stats div:first-child{border-top:0}
-.hd{margin-bottom:32px}
-.fit>div,.plan,blockquote,.step,.pp,.case{padding:24px}
-.case{grid-template-columns:1fr;gap:12px}
-.fit h3{font-size:30px}
-.plan .p{font-size:46px}
-summary{font-size:22px}
-.empathy{border-radius:22px}
-.btnrow .btn{width:100%;text-align:center}
-.final{padding:80px 20px}
-.final p{font-size:17px}
-footer.f .wrap{flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){.wave i{animation:none;height:20px}html{scroll-behavior:auto}}
-</style>
-</head>
-<body>
+.hero{position:relative;isolation:isolate;background:#fcf9ee}
+.hero .binary-bg {
+    --bg:        #fcf9ee;               /* crema di base */
+    --grid-line: rgba(70, 66, 52, .045); /* linee delle caselle */
+    --digit:     rgba(78, 74, 60, .22); /* 0/1 normali (chiari) */
+    --digit-hl:  #1d1b16;               /* 0/1 evidenziati (scuri + bold) */
+    --tint:      139, 155, 184;         /* RGB dei blocchi grigio-azzurri */
+    --tint-max:  .17;                   /* opacità massima dei blocchi */
+    --cell:      16px;                  /* lato casella */
+    --mono: "JetBrains Mono", "Space Mono", "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
 
-<!-- HERO -->
-<header class="hero">
-<nav>
-<a class="logo" href="#"><img src="img/logo-white.png" alt=""><span class="logo-txt">Calliope</span></a>
-<ul><li><a href="#come">Come funziona</a></li><li><a href="#per-chi">Per chi è</a></li><li><a href="#prezzi">Prezzi</a></li><li><a href="#faq">Domande</a></li></ul>
-<a class="btn" href="#prova" style="background:#1d1b1a">Parla con Calliope</a>
-<a class="btn mobile-prova" href="#prova">PROVA GRATIS</a>
-</nav>
-<div class="in">
-<a class="btn hero-btn" href="#prova" style="background:#1d1b1a">Parla con Calliope</a>
-<div class="h1row"><h1>Chiamata</h1><div class="par">(<span>Mai più. Risponde h24, allenata sulla tua azienda.</span>)</div><h1>Persa?<span class="mai-piu-mobile"> (<span class="mai-piu">Mai più</span>)</span></h1></div>
-<div class="trio">
-<div class="left"><h2>Un dipendente in più, che non dorme mai</h2></div>
-<div class="pw">
-<div class="phone" aria-label="Esempio di chiamata gestita da Calliope">
-<div class="av">C</div><b>Calliope-voce</b><small>sta rispondendo · 02:14 di notte</small>
-<div class="msg me">Buonasera, vorrei prenotare per domani mattina.</div>
-<div class="msg">Certo! Ho un posto alle 9:30 con la dottoressa Rossi. Le va bene?</div>
-<div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-</div>
-</div>
-<div class="spalla-container"></div>
-<a class="cta-c" href="#prova"><span>↗<br>PROVA<br>GRATIS</span></a>
-<div class="right">Calliope-voce risponde al telefono della tua attività, prenota, qualifica e ti passa le urgenze. Per PMI italiane che perdono clienti quando nessuno risponde.<b>Attiva in 48 ore. Prima prova gratuita.</b><a class="btn mobile-extra-cta" href="#prova">Prenota una demo</a></div>
-</div>
-</div>
-<svg class="arc" viewBox="0 -60 1200 250" aria-hidden="true" preserveAspectRatio="none">
-<defs><path id="p" d="M0,118 C300,-30 900,-30 1200,118"/></defs>
-<path d="M0,128 C300,-20 900,-20 1200,128 L1200,190 L0,190 Z" style="fill:var(--cream)"/>
-<text><textPath href="#p" startOffset="175" textLength="940" lengthAdjust="spacing">Risponde h24 – Prenota – Qualifica</textPath></text>
-</svg>
-</header>
+  .binary-bg {
+    position: absolute; inset: 0; overflow: hidden; z-index: 0;
+    pointer-events: none;
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: var(--cell) var(--cell);
+  }
+  .binary-bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
-<!-- INTRO (chiarezza: un messaggio, un'azione) -->
-<div class="intro">
-<p class="eyebrow">Un assistente. Ogni chiamata.</p>
-<p class="big">Risponde, prenota, qualifica e ti avvisa se è urgente. Conosce <span class="coin">LA TUA</span> azienda come un collega.</p>
-<p class="big fade">Prezzi, orari, servizi, modo di parlare: tutto allenato su di te.</p>
-<div class="btnrow"><a class="btn" href="#prova">Prova Calliope gratis</a><a class="btn o" href="#come">Scopri come funziona</a></div>
-</div>
 
-<!-- SOCIAL PROOF + CREDIBILITÀ -->
-<section class="alt" style="padding:60px 0">
-<div class="wrap">
-<div class="stats">
-<div><b>+500</b><span>aziende italiane già servite</span></div>
-<div><b>4,9/5</b><span>valutazione media dei clienti</span></div>
-<div><b>24/7</b><span>anche notte, weekend e festivi</span></div>
-<div><b>dal 2024</b><span>+100.000 chiamate gestite</span></div>
-</div>
-<div class="logos"><span>Studio Bianchi</span><span>Clinica Aurora</span><span>Autofficina Ferri</span><span>Trattoria del Borgo</span><span>Immobiliare Nord</span></div>
-</div>
-</section>
-
-<!-- INQUADRAMENTO DELLA PERDITA + STATUS QUO -->
-<section>
-<div class="wrap two">
-<div>
-<p class="eyebrow">Il costo di non rispondere</p>
-<p class="loss">Ogni chiamata persa è un cliente che oggi chiama <em>il tuo concorrente.</em></p>
-</div>
-<ul class="list">
-<li><b>Oltre 1 cliente su 3</b> non lascia un messaggio in segreteria: riaggancia e chiama il prossimo.</li>
-<li><b>Con 10 chiamate perse a settimana</b> e un valore medio di 150 €, perdi circa <b>6.000 € al mese.</b></li>
-<li><b>Una segretaria in più</b> costa oltre 1.800 € al mese, e comunque dorme, si ammala e va in ferie.</li>
-<li><b>Restare come sei</b> sembra la scelta facile. Ma ogni settimana ha un prezzo, e lo paghi tu.</li>
-</ul>
-</div>
-</section>
-
-<!-- COME FUNZIONA (status quo bias: zero sforzo; effetto dotazione) -->
-<section class="alt" id="come">
-<div class="wrap">
-<div class="hd"><p class="eyebrow">Come funziona</p><h2>Passare a Calliope è più facile che restare come sei</h2><p>Non cambi numero, non installi nulla, non impari un software. La alleniamo noi, come faresti con un nuovo assunto.</p></div>
-<div class="steps">
-<div class="step"><span class="n">Giorno 1</span><h3>Ci racconti l'azienda</h3><p>Servizi, prezzi, orari, domande frequenti, tono di voce. Una chiamata di 30 minuti, il resto lo facciamo noi.</p></div>
-<div class="step"><span class="n">Giorno 2</span><h3>La alleniamo</h3><p>Calliope impara come lavori e cosa dire in ogni situazione. La senti parlare prima di accenderla.</p></div>
-<div class="step"><span class="n">Giorno 3</span><h3>Inizia a rispondere</h3><p>Inoltri il tuo numero e Calliope prende le chiamate. Tu ricevi riassunto e appuntamenti in agenda.</p></div>
-<div class="step"><span class="n">Ogni giorno</span><h3>Impara con te</h3><p>Correggila una volta e lo ricorda sempre. Se è urgente o delicato, passa la chiamata a una persona.</p></div>
-</div>
-<p class="note">Dopo una settimana di prova ti sembrerà già parte del team. Se non è così, la spegni in un clic, senza vincoli.</p>
-</div>
-</section>
-
-<!-- EMPATIA TATTICA + MIRRORING -->
-<section>
-<div class="wrap">
-<div class="empathy">
-<div><h2>«Non riesco a rispondere a tutti.» Lo sappiamo.</h2></div>
-<div>
-<p>Sembra che affidare il telefono a un'AI sia una scelta rischiosa. Ha senso: è la voce della tua azienda e i tuoi clienti si fidano di te.</p>
-<p>Per questo Calliope non improvvisa. Dice solo ciò che le hai insegnato, ti passa le chiamate delicate e puoi riascoltare ogni conversazione.</p>
-<a class="btn" style="background:#fff;color:#1d1b1a;margin-top:10px" href="#prova">Ascolta una chiamata vera</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- POSIZIONAMENTO: per chi è / per chi NON è -->
-<section class="alt" id="per-chi">
-<div class="wrap">
-<div class="hd"><p class="eyebrow">Per chi è</p><h2>Fatta per le attività italiane che vivono di telefonate</h2></div>
-<div class="fit">
-<div><h3>Calliope è per te se…</h3><ul><li>Hai uno studio, una clinica, un'officina, un ristorante, un'agenzia o un'attività di servizi.</li><li>Il telefono squilla mentre sei con un cliente e non riesci a rispondere.</li><li>Vuoi più appuntamenti, senza assumere altro personale.</li><li>Ti serve una voce naturale, in italiano vero.</li></ul></div>
-<div class="no"><h3>Non è per te se…</h3><ul><li>Ricevi meno di 10 chiamate a settimana.</li><li>Cerchi un call center per vendite aggressive o telemarketing.</li><li>Vuoi sostituire ogni rapporto umano: Calliope affianca il tuo team, non lo cancella.</li><li>Non sei disposto a dedicarle mezz'ora per spiegarle la tua azienda.</li></ul></div>
-</div>
-<p class="note" style="margin-top:34px"><b>Perché adesso:</b> ogni giorno senza risposta è un giorno di clienti persi. Attiviamo pochi onboarding al mese, per allenare bene ogni assistente.</p>
-</div>
-</section>
-
-<!-- PREZZI: DECOY -->
-<section id="prezzi">
-<div class="wrap">
-<div class="hd"><p class="eyebrow">Prezzi chiari</p><h2>Scegli come iniziare</h2><p>Nessun costo nascosto, nessun vincolo di durata. Cambi piano o disdici quando vuoi.</p></div>
-<div class="price">
-<div class="plan"><h3>Avvio</h3><div class="p">149 €<small> /mese</small></div><ul><li>150 minuti di chiamate</li><li>Risposta h24</li><li>Messaggi via email</li><li>Allenamento base</li></ul><a class="btn o" href="#prova">Inizia con Avvio</a></div>
-<div class="plan"><h3>Professionale</h3><div class="p">299 €<small> /mese</small></div><ul><li>300 minuti di chiamate</li><li>Risposta h24</li><li>Messaggi via email</li><li>Agenda collegata</li></ul><a class="btn o" href="#prova">Scegli Professionale</a></div>
-<div class="plan best"><span class="tag">Il valore migliore</span><h3>Completo</h3><div class="p">349 €<small> /mese</small></div><ul><li>Minuti illimitati*</li><li>Risposta h24</li><li>Agenda e CRM collegati</li><li>Passaggio a operatore umano</li><li>Allenamento continuo + report</li></ul><a class="btn" href="#prova">Scegli Completo</a></div>
-</div>
-<p class="note">Prima settimana di prova inclusa su ogni piano. Hai già un'altra soluzione? Ti aiutiamo noi a spostarti. *Uso equo.</p>
-</div>
-</section>
-
-<!-- RECENSIONI + CASO STUDIO -->
-<section class="alt">
-<div class="wrap">
-<div class="hd"><p class="eyebrow">Dicono di Calliope</p><h2>Persone vere, risultati reali</h2></div>
-<div class="quotes">
-<blockquote><div class="stars">★★★★★</div><p>«Prima perdevo almeno 5 prenotazioni a settimana. Oggi la mattina trovo l'agenda già piena.»</p><footer>Marco R. · Titolare, Autofficina Ferri</footer></blockquote>
-<blockquote><div class="stars">★★★★★</div><p>«I pazienti non si accorgono che è un'AI. Mi dicono solo che finalmente rispondiamo sempre.»</p><footer>Dott.ssa Elena B. · Clinica Aurora</footer></blockquote>
-<blockquote><div class="stars">★★★★★</div><p>«L'ho allenata in una mattina. Ora conosce menù, allergeni e orari meglio di me.»</p><footer>Giulia T. · Trattoria del Borgo</footer></blockquote>
-</div>
-<div class="case"><b>+38%</b><div><h3 style="font-size:30px;margin-bottom:6px">Caso studio · Studio Bianchi</h3><span style="color:var(--muted)">In 60 giorni le chiamate gestite sono passate dal 62% al 100%, con 38% di appuntamenti in più e zero personale aggiunto.</span></div></div>
-<div class="badges"><span>🔒 Dati protetti e conformi al GDPR</span><span>🇮🇹 Server in Europa</span><span>↩ Disdici quando vuoi</span><span>🎧 Ogni chiamata riascoltabile</span></div>
-</div>
-</section>
-
-<!-- CHI È IL RESPONSABILE -->
-<section>
-<div class="wrap">
-<div class="hd"><p class="eyebrow">Le persone dietro Calliope</p><h2>Dietro la voce ci siamo noi</h2><p>Quando ci scrivi risponde una persona vera, e ti segue dall'allenamento al primo mese.</p></div>
-<div class="team">
-<div class="pp"><div class="ph">N</div><h3>Nome Cognome</h3><p>Fondatore · Responsabile dei progetti AI</p></div>
-<div class="pp"><div class="ph">N</div><h3>Nome Cognome</h3><p>Onboarding · Allena ogni assistente</p></div>
-<div class="pp"><div class="ph">N</div><h3>Nome Cognome</h3><p>Assistenza clienti · Sempre raggiungibile</p></div>
-</div>
-</div>
-</section>
-
-<!-- FAQ (fiducia / reattanza) -->
-<section class="alt" id="faq">
-<div class="wrap" style="max-width:860px">
-<div class="hd"><p class="eyebrow">Domande frequenti</p><h2>Hai ancora un dubbio? Eccolo risolto</h2></div>
-<details><summary>I clienti capiranno che è un'AI?</summary><p>Parla un italiano naturale e, se vuoi, si presenta come assistente virtuale. Sei tu a decidere come.</p></details>
-<details><summary>Cosa succede se non sa rispondere?</summary><p>Non inventa. Prende nota, ti avvisa subito o passa la chiamata a una persona.</p></details>
-<details><summary>Devo cambiare numero di telefono?</summary><p>No. Inoltri le chiamate quando vuoi e le disattivi quando vuoi.</p></details>
-<details><summary>Quanto tempo mi serve per iniziare?</summary><p>Circa 30 minuti per raccontarci la tua attività. Il resto lo facciamo noi in 48 ore.</p></details>
-<details><summary>E se non fa per me?</summary><p>Disdici in un clic, senza penali e senza spiegazioni.</p></details>
-</div>
-</section>
-
-<!-- CTA FINALE -->
-<div class="urg">Questo mese attiviamo solo 8 nuovi onboarding. Prenota ora la tua prova.</div>
-<div class="final" id="prova">
-<h2>Ascolta Calliope rispondere per la tua azienda</h2>
-<p>Scegli tu come iniziare: provala gratis per una settimana oppure prenota una demo di 15 minuti con noi.</p>
-<div class="btnrow"><a class="btn" href="mailto:ciao@calliope-voce.it">Prova gratis</a><a class="btn o" href="mailto:ciao@calliope-voce.it" style="border-color:#12263d;color:#12263d">Prenota una demo</a></div>
-</div>
-
-<footer class="f"><div class="wrap"><div><b>Calliope-voce</b> · Un assistente. Ogni chiamata.</div><div><a href="#">Privacy</a><a href="#">Termini</a><a href="#">Rimborsi</a><a href="mailto:ciao@calliope-voce.it">ciao@calliope-voce.it</a></div></div></footer>
-</body>
-</html>
+.desktop-hero,.mobile-hero{z-index:1}
+</style></head><body><div id="app"><link rel="preload" as="image" href="./public/assets/hero.svg" fetchPriority="high"/><link rel="preload" as="image" href="./public/assets/calliope-muse.webp"/><link rel="preload" as="image" href="./public/assets/meandro.webp"/><a href="#agenti" class="skip">Vai ai servizi</a><header class="hero" id="home"><div class="binary-bg" aria-hidden="true"><canvas></canvas></div><div class="desktop-hero"><img class="hero-original" src="./public/assets/hero.svg" alt="" fetchPriority="high" width="1440" height="800"/><h1 class="sr">Crea il tuo assistente H24 per rispondere ai tuoi clienti e salvare il tuo tempo</h1><p class="sr">Calliope risponde alle chiamate dei tuoi clienti 24 ore su 24, fornisce informazioni, prenota appuntamenti e aggiorna automaticamente il calendario con tutte le informazioni raccolte.</p><a class="hit hero-logo" aria-label="Calliope Voice, home" href="#home"></a><nav aria-label="Navigazione principale" class="hero-navigation"><a href="#home" aria-label="Home"><span class="sr">Home</span></a><a href="#agenti" aria-label="Launchpad"><span class="sr">Launchpad</span></a><a href="#percorso" aria-label="Protocol"><span class="sr">Protocol</span></a><a href="#trasparenza" aria-label="Incognito"><span class="sr">Incognito</span></a><a href="https://calliope-voice-studio.deftflounder4.chatgpt.site/richieste" aria-label="Accedi"><span class="sr">Accedi</span></a></nav><button class="hit hero-listen" aria-label="Ascoltala ora"></button><a class="hit hero-book" href="#prova" aria-label="Prenota una demo"></a><button class="hit hero-player" aria-label="Apri il player della chiamata dimostrativa"></button></div><div class="mobile-hero"><div class="mobile-nav"><a class="wordmark" href="#home"><img src="./public/assets/calliope-muse.webp" alt=""/>Calliope-voice</a><button type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div><div class="mobile-scene"><div class="mobile-title"><h1>Crea il tuo assistente H24 per rispondere ai tuoi <mark>clienti</mark> e salvare il tuo <mark>tempo</mark></h1></div></div><div class="mobile-intro"><p>Calliope risponde alle chiamate dei tuoi clienti 24 ore su 24, fornisce informazioni, prenota appuntamenti e aggiorna automaticamente il calendario con tutte le informazioni raccolte.</p><div class="mobile-actions"><button class="btn blue"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>Ascoltala ora</button><a class="btn line" href="#prova">Prenota una demo</a></div><small>Primi 50 minuti completamente gratuiti per un periodo limitato.</small></div><button class="mobile-player" aria-label="Apri l’esempio di chiamata"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg><span>00 : 00</span><i></i></button></div></header><dialog class="demo-dialog"><div class="demo-inside"><div class="dialog-top"><span class="label">Esempio di chiamata</span><button aria-label="Chiudi esempio"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div><h2>Calliope <em>Lead.</em></h2><p>Una richiesta di preventivo per il fotovoltaico. La lettura usa una voce italiana del dispositivo.</p><div class="demo-controls"><button class="btn" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg> <!-- -->Ascolta</button><span aria-live="polite">Voce italiana non disponibile su questo dispositivo.</span></div><ol class="dialogue"><li class=""><button disabled=""><b>Calliope</b><span>Buongiorno, sono Calliope, l’assistente virtuale dell’installatore. Ha chiesto un preventivo per il fotovoltaico. Ha un minuto?</span></button></li><li class=""><button disabled=""><b>Cliente</b><span>Sì, certo.</span></button></li><li class=""><button disabled=""><b>Calliope</b><span>L’abitazione è di sua proprietà?</span></button></li><li class=""><button disabled=""><b>Cliente</b><span>Sì. È una villetta, con il tetto a falde.</span></button></li><li class=""><button disabled=""><b>Calliope</b><span>Sa dirmi più o meno quanta energia consuma in un anno?</span></button></li><li class=""><button disabled=""><b>Cliente</b><span>Siamo sui quattromila chilowattora.</span></button></li><li class=""><button disabled=""><b>Calliope</b><span>Grazie. Il tecnico può passare giovedì alle dieci per il sopralluogo. Le torna?</span></button></li><li class=""><button disabled=""><b>Cliente</b><span>Sì, giovedì va bene.</span></button></li><li class=""><button disabled=""><b>Calliope</b><span>Allora le confermo giovedì alle dieci. Buona giornata!</span></button></li></ol></div></dialog><main><section class="problem"><div class="wrap problem-inner"><h2>Ogni lead che non richiami subito è un <em>sopralluogo</em> che va a qualcun altro.</h2><p>Il cliente compila il form mentre tu sei su un tetto o in riunione. Due ore dopo ha già parlato con un altro installatore. <strong>Non perdi un contatto: perdi un impianto.</strong></p></div></section><section id="agenti" class="services section"><div class="wrap"><h2>Scegli cosa deve fare<br/><em>Calliope</em> per te.</h2><div class="agent-grid"><article class="agent"><div class="agent-art"><img src="./public/assets/risposta.webp" alt="Una cliente al telefono e Calliope che risponde con le cuffie." loading="lazy" width="920" height="1150"/></div><div class="agent-info"><h3>Calliope <em>Risposta</em></h3><p><strong>Risponde quando tu non puoi.</strong> <!-- -->Riceve le chiamate mentre sei in cantiere o fuori orario, capisce cosa serve, fissa il sopralluogo e ti manda il riepilogo. Se serve una persona, ti passa la chiamata.</p><a href="#prova" data-agent="Risposta" class="text-link">Prova con 5 chiamate</a></div></article><article class="agent"><div class="agent-art"><img src="./public/assets/lead.webp" alt="Una richiesta inviata dal telefono arriva a Calliope." loading="lazy" width="920" height="1150"/></div><div class="agent-info"><h3>Calliope <em>Lead</em></h3><p><strong>Richiama il lead entro un minuto.</strong> <!-- -->Il cliente compila il form, Calliope lo chiama subito, verifica proprietà, tetto e consumi e mette il sopralluogo in agenda.</p><a href="#prova" data-agent="Lead" class="text-link">Prova con 5 chiamate</a></div></article><article class="agent"><div class="agent-art"><img src="./public/assets/promemoria.webp" alt="Una cliente conferma l’appuntamento e un operatore lo segna sul calendario." loading="lazy" width="920" height="1150"/></div><div class="agent-info"><h3>Calliope <em>Promemoria</em></h3><p><strong>Meno sopralluoghi saltati.</strong> <!-- -->Conferma l’appuntamento, lo ricorda il giorno prima e, se il cliente non può, lo sposta.</p><a href="#prova" data-agent="Promemoria" class="text-link">Prova con 5 chiamate</a></div></article></div></div></section><aside class="trial-ribbon"><div class="wrap ribbon-inner"><img src="./public/assets/calliope-muse.webp" alt=""/><div><h2>Prova Calliope su 5 chiamate vere.</h2><p>Le facciamo partire noi, sui tuoi contatti reali. Per ogni chiamata ricevi trascrizione, esito ed eventuale sopralluogo fissato. Nessun vincolo.</p></div><a class="btn" href="#prova">Richiedi la prova</a></div></aside><section id="percorso" class="section flow"><div class="wrap"><h2>Dal lead al sopralluogo,<br/><em>senza che tu muova un dito.</em></h2><div class="flow-layout"><div class="steps"><button id="flow-step-0" aria-controls="flow-example" aria-pressed="true" class="selected"><i aria-hidden="true"></i><span><strong>Arriva il lead.</strong><small>Da form, campagna o telefonata.</small></span></button><button id="flow-step-1" aria-controls="flow-example" aria-pressed="false" class=""><i aria-hidden="true"></i><span><strong>Calliope chiama o risponde in meno di un minuto.</strong><small>Si presenta subito come assistente virtuale.</small></span></button><button id="flow-step-2" aria-controls="flow-example" aria-pressed="false" class=""><i aria-hidden="true"></i><span><strong>Fa le domande giuste.</strong><small>Proprietà, tetto, consumi, quando è libero il cliente.</small></span></button><button id="flow-step-3" aria-controls="flow-example" aria-pressed="false" class=""><i aria-hidden="true"></i><span><strong>Il sopralluogo finisce in agenda.</strong><small>Tu ricevi riepilogo e trascrizione.</small></span></button><button id="flow-step-4" aria-controls="flow-example" aria-pressed="false" class=""><i aria-hidden="true"></i><span><strong>Se il cliente vuole una persona, passa a te.</strong><small>Senza perdere il filo della conversazione.</small></span></button></div><div id="flow-example" class="flow-board" aria-labelledby="flow-step-0" aria-live="polite"><div class="blueprint-top"><span class="label">Esempio di percorso</span><img src="./public/assets/meandro.webp" alt=""/></div><div class="specimen"><div class="specimen-header"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg><span class="label">Calliope Voice</span></div><h3>Richiesta di preventivo</h3><dl><div><dt>Servizio</dt><dd>Impianto fotovoltaico</dd></div><div><dt>Provenienza</dt><dd>Modulo del sito</dd></div></dl><div class="specimen-result"><span aria-hidden="true">✓</span>Richiesta ricevuta</div></div><div class="flow-track" aria-hidden="true"><i class="current"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></div></div><p class="flow-foot">Tu ci dai accesso a form e calendario. Al resto pensiamo noi.</p></div></section><section id="settori" class="sector"><div class="wrap sector-inner"><div><span class="label">Per chi lavora Calliope</span><h2>Fotovoltaico<span>.</span></h2><p>Ogni richiesta di preventivo richiamata subito, qualificata e trasformata in sopralluogo.</p></div><div class="solar-drawing" aria-hidden="true"><svg viewBox="0 0 500 310" fill="none" preserveAspectRatio="xMidYMid meet"><defs><pattern id="cells" width="39" height="43" patternUnits="userSpaceOnUse"><rect x="1.3" y="1.4" width="36.4" height="40.2" rx="2" fill="#446077" stroke="#aec2ca" stroke-width=".95"></rect><path d="M3 6h33" stroke="#a7b5ad" stroke-width=".5"></path><path d="M3 12h33" stroke="#a7b5ad" stroke-width=".5"></path><path d="M3 18h33" stroke="#a7b5ad" stroke-width=".5"></path><path d="M3 24h33" stroke="#a7b5ad" stroke-width=".5"></path><path d="M3 30h33" stroke="#a7b5ad" stroke-width=".5"></path><path d="M3 36h33" stroke="#a7b5ad" stroke-width=".5"></path></pattern></defs><g stroke="#d8bea0"><circle cx="363" cy="62" r="29"></circle><circle cx="363" cy="62" r="39" stroke-dasharray="1 5"></circle><path d="M363 13v8" transform="rotate(0 363 62)"></path><path d="M363 13v8" transform="rotate(30 363 62)"></path><path d="M363 13v8" transform="rotate(60 363 62)"></path><path d="M363 13v8" transform="rotate(90 363 62)"></path><path d="M363 13v8" transform="rotate(120 363 62)"></path><path d="M363 13v8" transform="rotate(150 363 62)"></path><path d="M363 13v8" transform="rotate(180 363 62)"></path><path d="M363 13v8" transform="rotate(210 363 62)"></path><path d="M363 13v8" transform="rotate(240 363 62)"></path><path d="M363 13v8" transform="rotate(270 363 62)"></path><path d="M363 13v8" transform="rotate(300 363 62)"></path><path d="M363 13v8" transform="rotate(330 363 62)"></path></g><g stroke="#95a7b5" stroke-width="1"><path d="m30 262 258 43 183-94M71 262l6-32m147 64 8-43m147-64v58l-157 52M77 240l146 55M85 224l136 60M367 220l-119 62"></path><path d="m55 241 219 38 154-80-218-38z" opacity=".45"></path></g><g transform="matrix(.91 .159 -.382 .606 129 81)" stroke="#dce1db"><rect x="-5" y="-5" width="322" height="225" fill="#213d54" stroke-width="3"></rect><rect width="312" height="215" fill="url(#cells)" stroke-width="2"></rect><path d="M156 0v215" stroke-width="4"></path></g><g stroke="#b8c9d0" opacity=".5" stroke-width=".8" stroke-dasharray="3 4"><path d="m122 68 306 53m-308-44-57 91M36 222l-20 29m281 31 13-26"></path></g></svg></div></div></section><section class="section why"><div class="wrap"><div class="section-title center"><h2>Non un centralino generico.<br/><em>Un assistente fatto per chi vende impianti.</em></h2></div><div class="reason-grid"><article><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sliders-horizontal" aria-hidden="true"><path d="M10 5H3"></path><path d="M12 19H3"></path><path d="M14 3v4"></path><path d="M16 17v4"></path><path d="M21 12h-9"></path><path d="M21 19h-5"></path><path d="M21 5h-7"></path><path d="M8 10v4"></path><path d="M8 12H3"></path></svg><h3>Configurato da noi.</h3><p>Non devi scrivere prompt né imparare strumenti: ci racconti come lavori e lo impostiamo noi.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><h3>Un solo installatore per provincia.</h3><p>I lead della tua zona non finiscono ai tuoi concorrenti.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg><h3>Chiamate che puoi ascoltare.</h3><p>Ogni conversazione ha trascrizione ed esito: controlli tu cosa dice Calliope.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><h3>Prima provi, poi decidi.</h3><p>5 chiamate vere, nessun vincolo.</p></article></div></div></section><section class="section features"><div class="wrap features-inner"><div class="feature-cover"><img src="./public/assets/calliope-hero.webp" alt="" loading="lazy"/><h2>Cosa fa<br/><em>Calliope</em><br/>al posto tuo.</h2></div><ul class="feature-list"><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines" aria-hidden="true"><path d="M2 10v3"></path><path d="M6 6v11"></path><path d="M10 3v18"></path><path d="M14 8v7"></path><path d="M18 5v13"></path><path d="M22 10v3"></path></svg><span>Risponde e richiama in italiano, con una voce naturale.</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg><span>Qualifica il lead con le domande che usi tu.</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days" aria-hidden="true"><path d="M8 2v3"></path><path d="M16 2v3"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M8 13h.01"></path><path d="M12 13h.01"></path><path d="M16 13h.01"></path><path d="M8 17h.01"></path><path d="M12 17h.01"></path><path d="M16 17h.01"></path></svg><span>Fissa il sopralluogo direttamente nel tuo calendario.</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-forwarded" aria-hidden="true"><path d="M14 6h8"></path><path d="m18 2 4 4-4 4"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg><span>Trasferisce la chiamata a una persona quando serve.</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><span>Ti manda trascrizione ed esito di ogni chiamata.</span></li><li><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-ring" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M22 8c0-2.3-.8-4.3-2-6"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path><path d="M4 2C2.8 3.7 2 5.7 2 8"></path></svg><span>Conferma e ricorda l’appuntamento al cliente.</span></li></ul></div></section><section id="trasparenza" class="section transparency"><div class="wrap"><div class="section-title"><h2>Trasparente con il cliente,<br/><em>in regola con la legge.</em></h2></div><div class="trust-grid"><article><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-check" aria-hidden="true"><path d="M2 21a8 8 0 0 1 13.292-6"></path><circle cx="10" cy="8" r="5"></circle><path d="m16 19 2 2 4-4"></path></svg><h3>Si presenta sempre come assistente virtuale.</h3><p>Il cliente sa fin dall’inizio con chi parla.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg><h3>Chiama solo chi ha chiesto di essere ricontattato.</h3><p>Nessuna lista fredda.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg><h3>Dati trattati secondo GDPR.</h3><p>Accordo sul trattamento dei dati disponibile su richiesta.</p></article><article><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open" aria-hidden="true"><path d="M12 5v16"></path><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"></path></svg><h3>Registrazioni e trascrizioni sotto il tuo controllo.</h3><p>Puoi riascoltare la chiamata e consultarne l’esito.</p></article></div></div></section><section id="integrazioni" class="integrations section"><div class="wrap integrate-inner"><div class="integration-drawing" aria-hidden="true"><div class="conduits"><i></i><i></i><i></i></div><img src="./public/assets/calliope-muse.webp" alt="" loading="lazy"/><div class="integration-icons"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-check" aria-hidden="true"><path d="M8 2v3"></path><path d="M16 2v3"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="m9 15 2 2 4-4"></path></svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg></span><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg></span></div></div><div class="integration-text"><h2>Si collega a quello che <em>usi già.</em></h2><p>Il tuo calendario, i moduli del sito e il numero di telefono aziendale tramite deviazione.</p><p>Usi un altro strumento? <a class="text-link" href="#crm">Dicci quale.</a></p></div></div></section><section id="prezzi" class="section pricing"><div class="wrap price-inner"><h2>Parti con 5 chiamate.<br/><em>Poi decidi.</em></h2><div class="price-card"><div class="price-main"><div class="label">Prova gratuita</div><div class="price-amount">0 <span>€</span></div><p>5 chiamate vere sui tuoi contatti.<br/>Riepilogo e trascrizione di ogni chiamata.</p><a class="btn" href="#prova">Richiedi la prova</a></div><div class="price-extra"><h3>Dopo la prova</h3><span>Calliope <!-- -->Risposta</span><span>Calliope <!-- -->Lead</span><span>Calliope <!-- -->Promemoria</span><small>Scegli l’agente che ti serve e richiedi la proposta per la tua azienda.</small></div></div></div></section><section id="faq" class="section faq"><div class="wrap faq-inner"><h2>Domande <br/><em>frequenti.</em></h2><div class="faq-list"><details name="domande"><summary>Sembrerà un robot?<span aria-hidden="true"></span></summary><p>Parla in italiano e si presenta sempre come assistente virtuale. Nel player della home trovi un esempio di conversazione. Con le cinque chiamate di prova puoi sentire come risponde ai tuoi clienti.</p></details><details name="domande"><summary>Cosa succede se non sa rispondere?<span aria-hidden="true"></span></summary><p>Dice al cliente che un collega lo richiamerà oppure ti trasferisce la chiamata, e ti manda il riepilogo.</p></details><details name="domande"><summary>Posso tenere il mio numero?<span aria-hidden="true"></span></summary><p>Sì. Con la deviazione di chiamata, il cliente continua a comporre il tuo numero aziendale. In fase di configurazione decidiamo quando inoltrare le chiamate a Calliope.</p></details><details name="domande"><summary>Si collega al mio CRM e al mio calendario?<span aria-hidden="true"></span></summary><p>Collega il calendario e i moduli del sito. Per il CRM, dicci quale usi e lo verifichiamo insieme.</p></details><details name="domande"><summary>Quanto ci vuole per partire?<span aria-hidden="true"></span></summary><p>Quando ci indichi il calendario, i moduli e il gestionale che usi, concordiamo con te la data della prova.</p></details><details name="domande"><summary>Come vengono trattati i dati?<span aria-hidden="true"></span></summary><p>Per ogni chiamata sono disponibili registrazione e trascrizione. Puoi richiedere l’accordo sul trattamento dei dati, con le modalità di accesso e conservazione.</p></details><details name="domande"><summary>Posso ascoltare le chiamate?<span aria-hidden="true"></span></summary><p>Sì, ogni chiamata ha registrazione e trascrizione.</p></details><details name="domande"><summary>Cosa succede dopo le 5 chiamate?<span aria-hidden="true"></span></summary><p>Ricevi il riepilogo. Se vuoi continuare, scegli l’agente che ti serve. Se no, finisce lì.</p></details></div></div></section><section id="prova" class="section contact"><div class="wrap contact-inner"><div class="contact-title"><img src="./public/assets/meandro.webp" alt=""/><h2>Prova Calliope <br/>su <em>5 chiamate</em> <br/>vere.</h2><p>Sui tuoi contatti reali.<br/>Per ogni chiamata ricevi trascrizione ed esito.</p></div><div class="lead-form" id="crm"><h3>Richiedi la prova</h3><p>Il modulo si apre sul sito privato di Calliope Voice. Per accedere serve l’account abilitato.</p><a class="btn form-submit" href="https://calliope-voice-studio.deftflounder4.chatgpt.site/#prova">Apri il modulo</a></div></div></section></main><footer><div class="wrap"><div class="footer-main"><a class="wordmark" href="#home"><img src="./public/assets/calliope-muse.webp" alt=""/>Calliope-voice</a><nav aria-label="Link a fondo pagina"><a href="#agenti">Agenti</a><a href="#percorso">Come funziona</a><a href="#integrazioni">Integrazioni</a><a href="#faq">FAQ</a><a href="#prova">Contatti</a></nav></div><div class="footer-bottom"><span>Calliope è un assistente virtuale.</span><a href="#trasparenza">Privacy e dati</a></div></div></footer></div><script defer src="./pages.js"></script></body></html>
